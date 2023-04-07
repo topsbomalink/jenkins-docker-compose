@@ -1,0 +1,23 @@
+# docker-compose.yaml
+  version: '3.8'
+  services:
+    jenkins:
+      image: jenkins/jenkins:lts
+      privileged: true
+      user: root
+      ports:
+       - 8081:8080
+       - 50000:50000
+      container_name: jenkins
+      volumes:
+      - /Users/topsinfinite/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    agent: 
+      image: topsinfinite/jenkins-maven-agent:git
+      privileged: true
+      user: root
+      container_name: jenkins-agent
+      expose:
+        - 22
+      environment: 
+       - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6RDtFA3lStC+lreGnWXqIqQ9bQSHjHzDAlJcBbWUrEgMaJJM5HXoRJbHVaG6BsPdSJ5rytgmgeVxpaSM/o4+xRaNLi4SPZTctR/k6tsQTIyVl4kqc6Sp5q+NfMaSl3KKO1osn1E0ioqY2nQk5PpjGlS8zMLaCLueyKw4LYWZMhpVp/WPY12P8Jrkv7/5kU74MsBXpycY+NaB/6Tzh4wJTZ5sy+yWG0SbnhXZHfqPSag0HpvosL+z121ppS5QyaP5CXWH76WovdX5uJoNf+BeS0XBEDrq0UQ9VFGIrEd1Qg9O8HkmjW1GjMy/iJZJObl8WvUP/rSHBLMR/xdERHaLI/UkWfRKsJuvCxec0Ldd3LNXPmS84fDzftrBwiF7JonAyudulx6nvfRANX79lZMJoWdkCPMPet5nR8+p7aNxY23op8mX1t06qX78u499bbDJVetXIY3+eLHXlSxrrsoO0eJGZ4woSLes7i8TiAB/Mi3J39Vf+pfTTJmLZUAoN08E= topsinfinite@Temitopes-MacBook-Pro.local
