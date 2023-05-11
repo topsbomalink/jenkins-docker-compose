@@ -1,3 +1,12 @@
+## How to launch Docker containers
+1. Install docker on your local machine
+1. Clone this repo using `git clone <repo_url>`
+1. Open the docker-compose.yaml file, under the agent service, replace the `<SSH-PUBLIC-KEY>` with your own/generated ssh public key. 
+*NB:*To generate a keypair, run ssh-keygen -t rsa -b 4096. This will generate a private and a public key.
+1. Save your changes to the docker-compose.yaml file
+1. Run `docker compose up -d`
+1. Verify the services are running with `docker ps` command    
+
 ## How to setup jenkins agent guide
 Please reference [here](https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose) for how setup docker agent for jenkins docker-compose
 
