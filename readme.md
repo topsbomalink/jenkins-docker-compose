@@ -1,4 +1,4 @@
-## How to launch Docker containers
+## How to launch the Docker containers
 1. Install docker on your local machine
 1. Clone this repo using `git clone <repo_url>`
 1. Open the docker-compose.yaml file, under the agent service, replace the `<SSH-PUBLIC-KEY>` with your own/generated ssh public key. 
