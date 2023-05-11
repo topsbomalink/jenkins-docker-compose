@@ -18,6 +18,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt update && apt install -y docker-ce-cli docker-ce containerd.io docker-compose-plugin
 RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN usermod -a -G docker jenkins
 
 
 
